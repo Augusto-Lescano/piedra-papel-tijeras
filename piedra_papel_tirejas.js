@@ -38,6 +38,7 @@ function playRound(humanChoice, computerChoice){
   else if(humanChoice==='paper'){
     if(computerChoice==='rock'){
       console.log('Gana el humano el round')
+      humanScore+=1
     }else{
       console.log('Gana la compu el round')
       computerScore+=1
@@ -52,9 +53,28 @@ function playRound(humanChoice, computerChoice){
       computerScore+=1
     }
   }
-  console.log('Resultados del round')
-  console.log('Humano:'+' '+humanScore)
-  console.log('Computadora:'+' '+computerScore)
 }
 
-playRound(getHumanChoice(),getComputerChoice())
+
+
+
+function playGame(){
+  for(let i=0;i<5;i++){
+    playRound(getHumanChoice(),getComputerChoice())
+  }
+  console.log('Resultados de la partida')
+  console.log('Humano:'+' '+humanScore)
+  console.log('Computadora:'+' '+computerScore)
+  if(humanScore===computerScore){
+    console.log('Empate!!!')
+  }
+  else if(humanScore>computerScore){
+    console.log('Ganan los humanos!!!')
+  }
+  else{
+    console.log('Ganan las computadoras!!!')
+  }
+}
+
+playGame()
+
